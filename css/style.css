@@ -1,0 +1,300 @@
+/* Je n'ai pas utlisé Grid Layout mais uniquement Flexbox car je pouvais tout faire avec Flex, Grid m'aurait demandé plus de temps car cela aurait nécessité des media querries en plus car je me retrouvais avec des petits bugs sur petite largeur d'écran */
+
+
+
+/* Import de la font pour les icones */
+
+@import 'fontello.css';
+
+/* Reboot */
+
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 16px 0;
+}
+
+body{
+    margin: 0;
+    font-family: 'Cantarell', sans-serif;
+}
+
+/* Traitements Génériques */
+
+/* Container pour taille d'écran moyenne et petite voir media querry en bas */
+
+.container{
+    max-width: 996px;
+    margin: auto;
+}
+
+/* Container pour les titre clamp me permet d'avoir une taille de 50% sur les écran moyen et de 300px sur les petits */
+
+.section1-title, .section2-content, .section3-title{
+    width: clamp(300px, 50%, 800px);
+    margin: auto;
+    text-align: center;    
+}
+
+h2{
+    font-size: 2.5rem;
+}
+
+/* Couleur des titres */
+
+.section1 h2, .section3 h2, .section1 i, .section1 h3{
+    color: #0389be;
+}
+
+/* Images de fond avec effet filtre */
+
+.section1, .section3{
+    background-image: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)) ,url(../img/bg.jpg);
+    padding: 2rem;
+}
+
+/* Overlay pour le header et la section 2. Position absolute pour le positionner par dessus la section et mode de fusion en "multiply" */
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0389be;
+    mix-blend-mode: multiply;
+}
+
+/* header */
+
+nav{
+    background-color: #0389be;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+/* On cache le logo pour écran petit et moyen et on le réaffiche sur grand écran voir media querry en bas */
+
+.nav-logo{
+    display: none;
+}
+nav .nav-burger{
+    width: 40px;
+}
+
+/* Image de fond avec un display flex pour centrer les éléments textes */
+.hero-container{
+    position: relative;
+}
+.hero{
+    background-image: url(../img/banner.jpg);
+    background-size: cover;
+    background-position: center;    
+    height: 620px;
+}
+
+.hero-content{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+.hero-content h1{
+    font-size: 3.5rem;
+    text-align: center;
+}
+.hero-content a{
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 8px 32px;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Section 1 */
+
+/* Display Flex et Flex-Wrap sur le conteneur pour le responsive "automatique" */
+
+.section1-card-container{
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 32px;
+    margin-top: 2rem;
+}
+
+/* Flex-grow pour que le contenu s'étende lorsqu'il dispose d'espace et Flex-basis à 350px pour que lorsqu'une carte n'a plus la place on crée une nouvelle rangée */
+
+.section1-card{
+    background-color: #fff;
+    text-align: center;
+    min-height: 400px;
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 5px;
+    flex: 1 1 350px;
+}
+.section1-card i{
+    font-size: 4rem;
+}
+.section-card h3{
+    font-size: 3rem;
+}
+
+/* Section2 */
+
+.section2{
+    position: relative;
+    height: 480px;
+    background-image: url(../img/cta01.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+.section2-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Section3 */
+.section3-content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    padding: 2rem;
+}
+.section3-card{
+    background-color: #fff;
+    flex: 1 1 350px;
+    padding: 1rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.section3-card-p{
+    border-left: 4px solid #d3d3d3;
+    padding: 1rem;
+}
+.section3-card-author{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #0389be;
+}
+.section3-card-author em{
+    color: initial;
+}
+.author-picture{
+    border-radius: 50%;
+    width: 48px;
+}
+
+/* Footer */
+footer{
+    background-color: #222222;
+    color: #999999;
+}
+footer>div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 3rem;
+}
+footer>div>div{
+    flex: 1 1 300px;
+}
+fieldset{
+    display: flex;
+    flex-direction: column;
+    margin: 16px 0;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+/* Display block pour que le label occupe toute la largeur */
+
+fieldset label{
+    display: block;
+}
+
+fieldset input, textarea{
+    width: 100%;
+    border-radius: 3px;
+}
+input[type=submit]{
+    border: 1px solid #fff;
+    color: #fff;
+    width: initial;
+    align-self: center;
+    background-color: #222222;
+    padding: .5rem 1rem;
+}
+footer ul{
+    list-style: none;
+    padding: 0;
+}
+footer ul a{
+    text-decoration: none;
+    color: #b6b6b6;
+}
+footer li{
+    margin-bottom: .5rem;
+}
+footer>div div:nth-child(2) ul li{
+    border-bottom: 1px solid #b6b6b6;
+}
+
+footer hr{
+    margin: 1rem;
+    color: #999999;
+}
+footer .copyright{
+    text-align: center;
+    margin: 2rem 0 0;
+}
+footer form legend, footer h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+
+/* On augmente la taille des conteneur pour grands appareils */
+
+@media screen and (min-width:1600px){
+    .container{
+        max-width: 1480px;
+    }
+    
+/* On réaffiche le logo pour grands appareils et on augmente la taille du titre principal */
+}
+@media screen and (min-width:1367px){
+    .nav-logo{
+        display: block;
+    }
+    .hero h1{
+        font-size: 5.5rem;
+    }
+    h2{
+        font-size: 3.5rem;
+    }
+}
